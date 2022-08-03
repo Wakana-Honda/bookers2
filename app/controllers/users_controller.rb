@@ -1,11 +1,9 @@
 class UsersController < ApplicationController
-  before action:authenticate_user!
-  
+
   def show
-    @book = Book.new
-    @users = Use.all
+    @user=current_user
+    @books=@user.books
   end
-  
   
   def edit
   end
