@@ -1,9 +1,18 @@
 <h1>User info</h1>
 
 <div>
-  <h3>Name:<%= @user.name %></h3>
-  <h3>Image:<%= image_tag @user.get_profile_image(100,100) %>
+  <%= image_tag @user.get_profile_image(100,100) %>
+  <h3>name   <%= @user.name %></h3>
   <h3>introduction</h3>
+  
+  <% if @user == current_user %>
+    <p><%= link_to "プロフィール編集画像を入れてね", edit_user_path(@user) %></p>
+  <% end %>
+
+<h1>New Book</h1>
+ #テキストフィールドとかがはいるよ
 </div>
-<p>Update User</p>s
- #sign_upページの情報が来る
+
+
+
+ 
