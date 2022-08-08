@@ -1,3 +1,21 @@
-/user/index pagw
- #User一覧が来るよ
+<h1>User info</h1>
 
+<div>
+  <%= image_tag @user.get_profile_image(100,100) %>
+  <h3>name   <%= @user.name %></h3>
+  <h3>introduction</h3>
+  
+  <% if @user == current_user %>
+    <p><%= link_to "プロフィール編集画像を入れてね", edit_user_path(@user) %></p>
+  <% end %>
+
+<h1>New Book</h1>
+  <%= form_with model: @book do |f| %>
+    <h4>Titele</h4>
+      <%= f.text_field :title %>
+    <h4>Opinipn</h4>
+      <%= f.text_area :body %><br>
+    <%= f.submit 'Create Book' %>
+  <% end %>
+
+<h1>Users</h1>

@@ -8,6 +8,9 @@
   <p>本の名前：<%= book.book_name %></p>
   <p>説明：<%= book.caption %></p>
   <p>ユーザーネーム：<%= book.user.name %></p>
+  <% if @book.user == current_user %>
+    <%= link_to "destroy", book_path(@book), method: :delete %>
+  <% end %>
 </div>
 
 <% end %>
