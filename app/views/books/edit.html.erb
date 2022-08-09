@@ -1,5 +1,6 @@
-#プロフ編集ページ
-<h1>User info</h1>
+#bookのedit page
+
+<h1>Editing Book</h1>
 
 <%= form_with model: @user do |f| %>
 
@@ -12,6 +13,6 @@
   <label for="inputIntroduction">Introduction</label><br>
   <%= f.text_field :text %><br>
   
-  <%= f.submit "Update User" %>
+  <%= f.submit "Update Book" %>
   
 <% end %>
