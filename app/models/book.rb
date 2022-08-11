@@ -1,5 +1,5 @@
 class Book < ApplicationRecord
-  has_one_attached :image
+  has_one_attached:image
   belongs_to:user
   
   def get_image
@@ -9,4 +9,8 @@ class Book < ApplicationRecord
     end
     image
   end
+  
+  #validates :title, presence: true
+  #validates :body, presence: true
+
 end

@@ -1,6 +1,16 @@
 #create book遷移ページ
 
 <h1>User info</h1>
+<div>
+  <%= image_tag @user.get_profile_image(100,100) %>
+  <h3>name   <%= @user.name %></h3>
+  <h3>introduction <%= @user.name%></h3>
+  
+  <% if @user == current_user %>
+    <p><%= link_to "プロフィール編集画像を入れてね", edit_user_path(@user) %></p>
+  <% end %>
+
+
 
 <h1>New book</h1>
   <%= form_with model: @book,url: '/books', method: :post do |f| %>
@@ -13,18 +23,16 @@
 
 <h1>Book detail</h1>
 
-<% @books.each do |book| %>
-
 <div>
-  <p><%= image_tag book.get_image %></p>
-  <p><%= book.user.name %></p>
-  <p>本の名前 <%= @book.title %></p>
-  <p>説明<%= @book.body %></p>
+
+  <%= image_tag @user.get_profile_image(100,100) %>
+  <p><%= @book.user.name %></p>
+  <p>Title <%= @book.title %></p>
+  <p>Opinion<%= @book.body %></p>
   
   <% if @book.user == current_user %>
-    <%= link_to "edit", edit_book_path(@book)%>
-    <%= link_to "destroy", book_path(@book), method: :delete %>
+    <%= link_to "edit", edit_book_path(@book.id)%>
+    <%= button_to "destroy", book_path(@book.id),method: :delete,"data-confirm" => "本当に削除しますか？" %>
   <% end %>
 </div>
 
-<% end %>

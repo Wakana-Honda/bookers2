@@ -5,7 +5,7 @@
 <div>
   <%= image_tag @user.get_profile_image(100,100) %>
   <h3>name   <%= @user.name %></h3>
-  <h3>introduction</h3>
+  <h3>introduction<%= @user.name %></h3>
   
   <% if @user == current_user %>
     <p><%= link_to "プロフィール編集画像を入れてね", edit_user_path(@user) %></p>
@@ -21,3 +21,14 @@
   <% end %>
 
 <h1>Users</h1>
+<% @users.each do |user|%>
+
+<p>image</p>
+<span><%= image_tag @user.get_profile_image(100,100) %></span>
+
+<p>name</p>
+<span><%= user.name %></span><br>
+
+<%= link_to "Show", user_path(@user.id)%>
+
+<% end %>
