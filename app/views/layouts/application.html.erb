@@ -44,6 +44,14 @@
     <% end %>
     
   </header>
+  
+  
+  <div class="text-success">
+  <%= flash[:notice] %>
+  </div>
+  <div class="text-danger">
+  <%= flash[:alret] %>
+  </div>
     <%= yield %>
     
   <footer>Copy Right Infratop.inc</footer>

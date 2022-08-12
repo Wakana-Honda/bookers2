@@ -10,8 +10,6 @@
     <p><%= link_to "プロフィール編集画像を入れてね", edit_user_path(@user) %></p>
   <% end %>
 
-
-
 <h1>New book</h1>
   <%= form_with model: @book,url: '/books', method: :post do |f| %>
    <h4>Titele</h4>
