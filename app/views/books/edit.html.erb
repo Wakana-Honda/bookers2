@@ -13,12 +13,17 @@
 
 
 <%= form_with model: @book do |f| %>
-    <h4>Titele</h4>
-      <%= f.text_field :title %>
-    <h4>Opinipn</h4>
-      <%= f.text_area :body %><br>
-      
-  <%= f.submit "Update Book" %><br>
+  <div class="form-group">  
+    <label for="book_title">Titele</label><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="form-group">
+    <label for="book_opinion">Opinipn</label><br>
+    <%= f.text_area :body %>
+  </div>
+  <div class="form-group">  
+  <%= f.submit "Update Book" %>
+  </div>
   
     <%= link_to "Show", edit_book_path(@book.id)%>
     |

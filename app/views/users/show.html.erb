@@ -1,4 +1,5 @@
-#Homeページ
+#home
+
 <% if @book.errors.any? %>
   <%= @book.errors.count %>erro prohibited this obj from being saved:
   <ul>
@@ -8,36 +9,59 @@
   </ul>
  <% end %>
  
-<h1>User info</h1>
-
-<div>
+<h2>User info</h2>
   <%= image_tag @user.get_profile_image(100,100) %>
-  <h3>name   <%= @user.name %></h3>
-  <h3>introduction <%= @user.name%></h3>
-  
+  <table class="table">
+    <tbody>
+     <tr>
+      <th>name   <%= @user.name %></th>
+     </tr>
+     <tr>
+      <th>introduction <%= @user.name%></th>
+     </tr>
+    </tbody>
+  </table>  
+     
   <% if @user == current_user %>
     <p><%= link_to "プロフィール編集画像を入れてね", edit_user_path(@user) %></p>
   <% end %>
-
-<h1>New Book</h1>
-  <%= form_with model: @book do |f| %>
-    <h4>Titele</h4>
-      <%= f.text_field :title %>
-    <h4>Opinipn</h4>
-      <%= f.text_area :body %><br>
-    <%= f.submit 'Create Book' %>
-  <% end %>
   
-<h1>Books</h1>
-<% @books.each do |books| %>
+<h2>New Book</h2>
+  <%= form_with model: @book,url: '/books', method: :post do |f| %>
+   <div class="form-group">
+    <label for ="book_title">Titele</label><br>
+    <%= f.text_field :title %>
+   </div>
+   <div class="form-group">
+    <label for ="book_opinion">Opinion</label><br>
+      <%= f.text_area :body %>
+    </div> 
+    <div class="form-group">
+    <%= f.submit 'Create Book' %>
+    </div>
+  <% end %>
 
-<div>
-  <%= image_tag @user.get_profile_image(100,100) %>
-  <p>Title <%= @book.title %></p>
-  <p>Opinion<%= @book.body %></p>
-</div>
 
-<% end %>
+<h2>Books</h2>
+<table class="table table-hover table-inverse">
+  <thead>
+   <tr>
+     <th></th>
+     <th>Title</th>
+     <th>Opinion</th>
+     <th colspan="3"></th>
+    </tr>
+  </thead>
+  <% @books.each do |book|%>
+  <tbody>
+   <tr>
+    <td><%= image_tag @user.get_profile_image(100,100) %></td>
+    <td><%= @book.title %></td>
+    <td><%= @book.body %></td>
+   </tr>
+  </tbody>
+  <% end %>
+</table>
 
 
 

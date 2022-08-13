@@ -1,72 +1,69 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html class="fontawesome-i2svg-active fontawesome-i2svg-complete">
   <head>
-    <title>Bookers2</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <meta charset="utf-8">
-    <script src="https://kit.fontawesome.com/1ae5e8c4d7.js" crossorigin="anonymous"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+   <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+   <script src="https://kit.fontawesome.com/1ae5e8c4d7.js" crossorigin="anonymous"></script>
+   <title>Bookers2</title>
+   <%= csrf_meta_tags %>
+   <%= csp_meta_tag %>
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   </head>
 
-  <body class="d-flex flex-column vh-100">
+  <body>
    <header>
      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
-        <a class="navbar-brand "href="/">
-          <span>Bookers</span>
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="true" aria-label="Toggle navigation">
+       <a class="navbar-brand p-3" href="/">
+        <span>Bookers</span>
+       </a>
+       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse show" id="navbarNavDropdown" style>
-        <ul class="navbar-nav ml-auto">
-
-    <% if user_signed_in? %>
+       </button>
+     
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+     <ul class="navbar-nav ml-auto">
+      <% if user_signed_in? %>
       <li class="nav-item">
-       <%= link_to 'Home', user_path(current_user.id),class: 'nav-link text-dark' %>
-       <i class="fa-thin fa-house"></i>
+       <%= link_to 'Home', user_path(current_user.id),class:"fa-solid fa-house" %>
       </li>
       <li>
-       <%= link_to 'Users', users_path %> 
-       <i class="fa-solid fa-users"></i>
+       <%= link_to 'Users', users_path,class:"fa-solid fa-users" %> 
       </li>
        <li>
-        <%= link_to 'Books', books_path %> 
-        <i class="fa-duotone fa-books"></i>
+        <%= link_to 'Books', books_path,class:"fa-solid fa-book-open" %> 
       </li>
       <li>
-        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-        <i class="fa-duotone fa-right-from-bracket"></i>
+        <%= link_to "Log out", destroy_user_session_path, method: :delete,class:"fa-solid fa-right-from-bracket" %>
       </li>
-      
-    <% else %>
+      </ul>
+      </div>     
+
+     <% else %>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto">
       <li>
-        <i class="fa-solid fa-house"></i>
-        <%= link_to "Home", root_path %>
-      </li>
-      <li>
-       <%= link_to "About", about_path %>
-      <i class="fa-thin fa-link"></i>    
+        <%= link_to "Home", root_path,class:"fa-solid fa-house" %>
       </li>
       <li>
-        <%= link_to "Sign up",new_user_registration_path %>
-        <i class="fa-duotone fa-user-plus"></i>
+       <%= link_to "About", about_path,class:"fa-solid fa-link" %>
       </li>
       <li>
-        <%= link_to "Log in",new_user_session_path %>
-       <i class="fa-duotone fa-right-to-bracket"></i>
+        <%= link_to "Sign up",new_user_registration_path,class:"fa-solid fa-user-plus" %>
       </li>
-      
-    <% end %>
+      <li>
+        <%= link_to "Log in",new_user_session_path,class:"fa-solid fa-right-to-bracket" %>
+      </li>
+     <% end %>
      </ul>
     </div>
     </div>
    </nav>
   </header>
-  
+  <main class="mb-auto">
+  <%= yield %>
+  </main>
   
   <div class="text-success">
   <%= flash[:notice] %>
@@ -74,14 +71,11 @@
   <div class="text-danger">
   <%= flash[:alret] %>
   </div>
-<main class="mb-auto">
-<%= yield %>
-</main>
-    
-  <footer class="bg-dark text-white pt-5 pb-4">
-    <div class="container">
-     <div class="row no-gutters">
-      <div class="col-md-4">
+
+  <footer>
+    <div class="container mt-5">
+     <div class="row">
+      <div class="mx-auto">
        <p>Copy Right Infratop.inc</p>
       </div>
      </div>
