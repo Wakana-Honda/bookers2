@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to:'homes#top'
   #destroy_user_session DELETE /users/sign_out(.:format) devise/sessions#destroy
   
-  delete 'users/sign_out' => 'sessions#destroy'
+  delete "users/sign_out" => "sessions#destroy"
   get "/homes/about" => "homes#about",as:"about"
   resources:books
   resources:users,only: [:index, :create, :edit, :show, :update, :destroy]

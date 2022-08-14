@@ -36,7 +36,7 @@
       </li>
       <li>
         <%= link_to "Log out", destroy_user_session_path, method: :delete,class:"fa-solid fa-right-from-bracket" %>
-      </li>
+      </li> 
       </ul>
       </div>     
 
@@ -61,9 +61,6 @@
     </div>
    </nav>
   </header>
-  <main class="mb-auto">
-  <%= yield %>
-  </main>
   
   <div class="text-success">
   <%= flash[:notice] %>
@@ -72,6 +69,10 @@
   <%= flash[:alret] %>
   </div>
 
+  <main class="mb-auto">
+  <%= yield %>
+  </main>
+  
   <footer>
     <div class="container mt-5">
      <div class="row">
