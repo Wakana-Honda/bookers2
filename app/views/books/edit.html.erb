@@ -1,5 +1,8 @@
 #bookのedit page
-
+<p id="notice"></p>
+<div class="container">
+ <div class="row">
+  <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
 <h1>Editing Book</h1>
 
 <% if @book.errors.any? %>
@@ -13,6 +16,7 @@
 
 
 <%= form_with model: @book do |f| %>
+<form>
   <div class="form-group">  
     <label for="book_title">Titele</label><br>
     <%= f.text_field :title %>
@@ -24,9 +28,12 @@
   <div class="form-group">  
   <%= f.submit "Update Book",class:"btn btn-success" %>
   </div>
-  
-    <%= link_to "Show", edit_book_path(@book.id)%>
+  </form>
+    <%= link_to "Show", book_path(@book.id)%>
     |
-    <%= link_to "Back", book_path(@book.id)%>
-  
+    <%= link_to "Back", books_path %>
 <% end %>
+</div>
+</div>
+</div>
+
