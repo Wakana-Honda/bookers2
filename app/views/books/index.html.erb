@@ -35,15 +35,15 @@
   <%= form_with model: @book,url: '/books', method: :post do |f| %>
   <form>
    <div class="form-group">
-    <label for ="book_title">Titele</label><br>
+    <label for ="book_title">Titele</label>
     <%= f.text_field :title,class:"form-control" %>
    </div>
    <div class="form-group">
-    <label for ="book_opinion">Opinion</label><br>
+    <label for ="book_opinion">Opinion</label>
     <%= f.text_area :body,class:"form-control"  %>
     </div> 
     <div class="form-group">
-　　　<%= f.submit 'Create Book',class:"btn btn-success" %>
+     <%= f.submit 'Create Book',class:"btn btn-success" %>
     </div>
    </form>
   <% end %>
