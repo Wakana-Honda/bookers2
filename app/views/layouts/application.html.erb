@@ -27,51 +27,66 @@
      <ul class="navbar-nav  ml-auto">
       <% if user_signed_in? %>
       <li>
-       <%= link_to 'Home', user_path(current_user.id),class:"nav-link text-light fa-solid fa-house" %>
+       <%= link_to user_path(current_user.id), class: 'nav-link text-light' do %>
+        <i class="fas fa-home"></i>
+        Home
+　　　　<% end %>
       </li>
       <li>
-       <%= link_to 'Users', users_path,class:"nav-link text-light fa-solid fa-users" %> 
+       <%= link_to  users_path, class: 'nav-link text-light' do %>
+        <i class="fas fa-users"></i>
+        <span>Users</span>
+　　　　<% end %>
       </li>
        <li>
-        <%= link_to 'Books', books_path,class:"nav-link text-light fa-solid fa-book-open" %> 
+        <%= link_to  books_path, class: 'nav-link text-light' do %>
+        <i class="fas fa-book-open"></i>
+        <span>Books</span>
+　　　　<% end %>
       </li>
       <li>
-        <%= link_to "Log out", destroy_user_session_path, method: :delete,class:"nav-link text-light fa-solid fa-right-from-bracket" %>
+       <%= link_to  destroy_user_session_path,method: :delete, class: 'nav-link text-light' do %>
+        <i class="fas fa-sign-out-alt"></i>
+        <span>Log out</span>
+　　　　<% end %>
       </li> 
-      </ul>
-      </div>     
-
      <% else %>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav ml-auto">
-      <li>
-        <%= link_to "Home", root_path,class:"nav-link text-light fa-solid fa-house" %>
+    <li>
+       <%= link_to  root_path, class: 'nav-link text-light' do %>
+        <i class="fa-solid fa-house"></i>
+        <span>Home</span>
+　　　　<% end %>
       </li>
       <li>
-       <%= link_to "About", about_path,class:"nav-link text-light fa-solid fa-link" %>
+       <%= link_to  home_about_path, class: 'nav-link text-light' do %>
+        <i class="fas fa-link"></i>
+        <span>About</span>
+　　　　<% end %>
       </li>
       <li>
-        <%= link_to "Sign up",new_user_registration_path,class:"nav-link text-light fa-solid fa-user-plus" %>
+        <%= link_to  new_user_registration_path, class: 'nav-link text-light' do %>
+        <i class="fas fa-user-plus"></i>
+        <span>Sign up</span>
+　　　　<% end %>
       </li>
       <li>
-        <%= link_to "Log in",new_user_session_path,class:"nav-link text-light fa-solid fa-right-to-bracket" %>
+        <%= link_to  new_user_session_path, class: 'nav-link text-light' do %>
+        <i class="fas fa-sign-in-alt"></i>
+        <span>Log in</span>
+　　　　<% end %>
       </li>
-     </ul>
-    </div>
     <% end %>
+    </ul>
+    </div>
     </div>
    </nav>
   </header>
   
-  <div class="text-success">
-  <%= flash[:notice] %>
-  </div>
-  <div class="text-danger">
-  <%= flash[:alret] %>
-  </div>
+   <main>
+   <p id="notice"><%= notice %></p>
 
-  <main>
   <%= yield %>
+  
   </main>
   
   <footer>

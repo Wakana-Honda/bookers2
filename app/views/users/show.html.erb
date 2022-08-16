@@ -1,16 +1,17 @@
-  #homepage
-  
-  <p id="notice"></p>
-<% if @book.errors.any? %>
-  <%= @book.errors.count %>erro prohibited this obj from being saved:
-  <ul>
+
+<div class="container px-5 px-sm-0">
+ 
+ <div id="error_explanation">
+  <% if @book.errors.any? %>
+   <h3><%= @book.errors.count %>erros prohibited this obj from being saved:</h3>
+   <ul>  
     <% @book.errors.full_messages.each do |message| %>
       <li><%= message %></li>
     <% end %>
-  </ul>
- <% end %>
- 
- <div class="container px-5 px-sm-0">
+   </ul>
+  <% end %>
+  </div>
+
   <div class="row">
    <div class="col-md-3">
     <h2>User info</h2>
@@ -31,7 +32,8 @@
    
    <div class="row">   
     <% if @user == current_user %>
-     <%=link_to "aaa", edit_user_path(@user),class:"btn btn-outline-secondary btn-block fa-solid fa-user-gear" %>
+     <%=link_to edit_user_path(@user),class:"btn btn-outline-secondary btn-block fa-solid fa-user-gear"  do %>
+     <% end %>
     <% end %>
    </div>
    
