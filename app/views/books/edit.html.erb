@@ -2,10 +2,11 @@
 <div class="container">
  <div class="row">
   <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+    
 <h1>Editing Book</h1>
 
 <% if @book.errors.any? %>
-  <%= @book.errors.count %>erro prohibited this obj from being saved:
+  <h3><%= @book.errors.count %>error prohibited this obj from being saved:</h3>
   <ul>
     <% @book.errors.full_messages.each do |message| %>
       <li><%= message %></li>
@@ -15,23 +16,22 @@
 
 
 <%= form_with model: @book do |f| %>
-<form>
   <div class="form-group">  
-    <label for="book_title">Titele</label><br>
-    <%= f.text_field :title %>
+    <label for="book_title">Titele</label>
+    <%= f.text_field :title,class:"form-control book_title",id:"book_title" %>
   </div>
   <div class="form-group">
-    <label for="book_opinion">Opinipn</label><br>
-    <%= f.text_area :body %>
+    <label for="book_opinion">Opinipn</label>
+    <%= f.text_area :body,class:"form-control book_body",id:"book_body" %>
   </div>
   <div class="form-group">  
   <%= f.submit "Update Book",class:"btn btn-success" %>
   </div>
-  </form>
-    <%= link_to "Show", book_path(@book.id)%>
+    <%= link_to "Show",book_path(@book.id),class:"(@book.id)" %>
     |
-    <%= link_to "Back", books_path %>
+    <%= link_to "Back", books_path,class:"back" %>
 <% end %>
+
 </div>
 </div>
 </div>
